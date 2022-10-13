@@ -1,3 +1,7 @@
+DROP SHEMA if exists universquizz;
+CREATE SHEMA universquizz;
+SET SEARCH_PATH to universquizz;
+
 CREATE TABLE Question(
    nomQuestion TEXT,
    reponse TEXT NOT NULL,
@@ -39,8 +43,8 @@ CREATE TABLE Classement(
    joueur6 INT NOT NULL,
    joueur7 INT NOT NULL,
    joueur8 INT NOT NULL,
-   joueur9 VARCHAR(50)  NOT NULL,
-   joueur10 VARCHAR(50)  NOT NULL,
+   joueur9 INT NOT NULL,
+   joueur10 INT NOT NULL,
    PRIMARY KEY(nomClassement),
    UNIQUE(joueur1),
    UNIQUE(joueur2),
