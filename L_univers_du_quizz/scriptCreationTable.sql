@@ -1,7 +1,6 @@
-DROP SHEMA if exists universquizz;
-CREATE SHEMA universquizz;
-SET SEARCH_PATH to universquizz;
-
+DROP SCHEMA if exists universquizz;
+CREATE SCHEMA universquizz;
+USE universquizz;
 CREATE TABLE Question(
    nomQuestion TEXT,
    reponse TEXT NOT NULL,
@@ -33,36 +32,56 @@ CREATE TABLE QCM(
    PRIMARY KEY(nomQCM)
 );
 
+CREATE TABLE Utilisateur(
+   idUser SERIAL,
+   pseudo VARCHAR(50) UNIQUE NOT NULL,
+   mail VARCHAR(50) UNIQUE  NOT NULL,
+   motDePasse VARCHAR(50)  NOT NULL,
+   pointxp INT UNSIGNED NOT NULL,
+   piece INT UNSIGNED NOT NULL,
+   indice INT UNSIGNED NOT NULL,
+   nomQuestion TEXT,
+   nomQCM TEXT,
+   PRIMARY KEY(idUser),
+
+   FOREIGN KEY(nomQuestion) REFERENCES Question(nomQuestion),
+   FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM)
+);
+
 CREATE TABLE Classement(
-   nomClassement VARCHAR(50) ,
-   joueur1 INT NOT NULL,
-   joueur2 INT NOT NULL,
-   joueur3 INT NOT NULL,
-   joueur4 INT NOT NULL,
-   joueur5 INT NOT NULL,
-   joueur6 INT NOT NULL,
-   joueur7 INT NOT NULL,
-   joueur8 INT NOT NULL,
-   joueur9 INT NOT NULL,
-   joueur10 INT NOT NULL,
-   PRIMARY KEY(nomClassement),
-   UNIQUE(joueur1),
-   UNIQUE(joueur2),
-   UNIQUE(joueur3),
-   UNIQUE(joueur4),
-   UNIQUE(joueur5),
-   UNIQUE(joueur6),
-   UNIQUE(joueur7),
-   UNIQUE(joueur8),
-   UNIQUE(joueur9),
-   UNIQUE(joueur10)
+    nomClassement VARCHAR(50) ,
+    joueur1 VARCHAR(50) UNIQUE NOT NULL,
+    joueur2 VARCHAR(50) UNIQUE NOT NULL,
+    joueur3 VARCHAR(50) UNIQUE NOT NULL,
+    joueur4 VARCHAR(50) UNIQUE NOT NULL,
+    joueur5 VARCHAR(50) UNIQUE NOT NULL,
+    joueur6 VARCHAR(50) UNIQUE NOT NULL,
+    joueur7 VARCHAR(50) UNIQUE NOT NULL,
+    joueur8 VARCHAR(50) UNIQUE NOT NULL,
+    joueur9 VARCHAR(50) UNIQUE NOT NULL,
+    joueur10 VARCHAR(50) UNIQUE NOT NULL,
+    PRIMARY KEY(nomClassement),
+    FOREIGN KEY(joueur1) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur2) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur3) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur4) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur5) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur6) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur7) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur8) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur9) REFERENCES Utilisateur(pseudo),
+    FOREIGN KEY(joueur10) REFERENCES Utilisateur(pseudo)
+
 );
 
 CREATE TABLE Commentaire(
-   nomComentaire TEXT,
-   pseudo VARCHAR(50)  NOT NULL,
-   PRIMARY KEY(nomComentaire)
+   idCom SERIAL,
+   nomComentaire TEXT NOT NULL,
+   TitreCom VARCHAR(50)  NOT NULL,
+   DateCom DATETIME NOT NULL,
+   PRIMARY KEY(idCom)
 );
+
 
 CREATE TABLE Defi(
    nomDefi VARCHAR(50) ,
@@ -70,32 +89,17 @@ CREATE TABLE Defi(
    PRIMARY KEY(nomDefi)
 );
 
-CREATE TABLE Utilisateur(
-   id INT AUTO_INCREMENT,
-   pseudo VARCHAR(50)  NOT NULL,
-   mail VARCHAR(50)  NOT NULL,
-   motDePasse VARCHAR(50)  NOT NULL,
-   pointxp INT NOT NULL,
-   piece INT NOT NULL,
-   indice INT NOT NULL,
-   nomQuestion TEXT,
-   nomQCM TEXT,
-   PRIMARY KEY(id),
-   UNIQUE(pseudo),
-   UNIQUE(mail),
-   FOREIGN KEY(nomQuestion) REFERENCES Question(nomQuestion),
-   FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM)
-);
+
 
 CREATE TABLE Theme(
    nomTheme VARCHAR(50) ,
    nomClassement VARCHAR(50) ,
-   id INT,
+   idUser INT,
    nomTag VARCHAR(50) ,
    PRIMARY KEY(nomTheme),
    UNIQUE(nomClassement),
    FOREIGN KEY(nomClassement) REFERENCES Classement(nomClassement),
-   FOREIGN KEY(id) REFERENCES Utilisateur(id),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(nomTag) REFERENCES Tag(nomTag)
 );
 
@@ -118,30 +122,33 @@ CREATE TABLE Trier(
 );
 
 CREATE TABLE Jouer(
-   id INT,
+   idUser INT,
    nomQuizz VARCHAR(50) ,
-   PRIMARY KEY(id, nomQuizz),
-   FOREIGN KEY(id) REFERENCES Utilisateur(id),
+   PRIMARY KEY(idUser, nomQuizz),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz)
 );
 
 CREATE TABLE Rechercher(
-   id INT,
+   idUser INT,
    nomQuizz VARCHAR(50) ,
    nomTag VARCHAR(50) ,
-   PRIMARY KEY(id, nomQuizz, nomTag),
-   FOREIGN KEY(id) REFERENCES Utilisateur(id),
+   PRIMARY KEY(idUser, nomQuizz, nomTag),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
    FOREIGN KEY(nomTag) REFERENCES Tag(nomTag)
 );
 
 CREATE TABLE Commenter(
+   idUser INT,
    nomQuizz VARCHAR(50) ,
-   nomComentaire TEXT,
-   PRIMARY KEY(nomQuizz, nomComentaire),
+   idCom INT,
+   PRIMARY KEY(idUser, nomQuizz, idCom),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(nomComentaire) REFERENCES Commentaire(nomComentaire)
+   FOREIGN KEY(idCom) REFERENCES Commentaire(idCom)
 );
+
 
 CREATE TABLE Contenir(
    nomQuizz VARCHAR(50) ,
@@ -152,10 +159,10 @@ CREATE TABLE Contenir(
 );
 
 CREATE TABLE Defier(
-   id INT,
+   idUser INT,
    nomDefi VARCHAR(50) ,
-   PRIMARY KEY(id, nomDefi),
-   FOREIGN KEY(id) REFERENCES Utilisateur(id),
+   PRIMARY KEY(idUser, nomDefi),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(nomDefi) REFERENCES Defi(nomDefi)
 );
 
