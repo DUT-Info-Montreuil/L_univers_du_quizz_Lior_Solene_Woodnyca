@@ -1,0 +1,76 @@
+/*----------------------------BODY------------------------------*/
+a {
+	text-decoration: none;
+
+}
+
+
+
+
+/*--------------------------HEADER-----------------------------*/
+
+header {
+	border: solid;
+	padding : 10px;
+}
+
+#lienSite {
+	margin: auto;
+}
+
+#moteurDeRecherche {
+	margin-left: 540px;
+
+}
+
+.lienConnexion  {
+	margin-left: 540px ;
+	margin-right: 50px;
+}
+
+
+
+/*--------------------------NAV------------------------------*/
+
+nav {
+	padding : 10px;
+}
+
+nav a {
+	padding-left: 120px;
+}
+
+/*-------------------------CLASSEMENT----------------------------*/
+
+#classement {
+	border: solid;
+	display:inline-block;
+	width: 150px;
+	padding: 20px;
+}
+
+/*------------------------SECTION--------------------------*/
+#section_Quizz {
+	display: inline-block;
+}
+
+.quizz {
+	border:  solid;
+	margin-left: 50px;
+	margin-top: 10px;
+	padding: 20px;
+	padding-bottom: 50px;
+}
+
+#Quizz_joueur a {
+	margin-left: 50px;
+
+}
+
+#Quizz_theme_X a {
+	margin-left: 50px;
+}
+#Quizz_joueur {
+	margin-top: 20px;
+	padding-bottom: 50px;
+}
