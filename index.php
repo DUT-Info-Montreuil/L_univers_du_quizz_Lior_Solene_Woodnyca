@@ -1,15 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<HTML lang="fr">
 
-<html>
-
-    <head>
-        <meta charset="UTF-8"/>
-        <link rel="stylesheet" href="style.css"/>
-        <title>Accueil</title>
-    </head>
-
-
-
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Univers de Quizz</title>
+		<LINK href="style.css" rel="stylesheet" type="text/css">
+ 	</head>
 
 
     <body>
@@ -29,6 +25,9 @@
                     $module = new ModConnexion();
             }
         }
+        else {
+            
+        }
 
         require_once "composants/comp_menu.php";
         $menu = new CompMenu();
@@ -36,5 +35,8 @@
         require_once "template.php";
 
         ?>
+
+        
+
     </body>
-</html>
+</HTML>
