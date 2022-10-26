@@ -2,6 +2,7 @@
 body {
 	margin: auto;
 	width: 1835px;
+
 }
 
 
@@ -33,7 +34,6 @@ header {
 }
 
 
-
 /*--------------------------NAV------------------------------*/
 
 nav {
@@ -50,8 +50,14 @@ nav a {
 	border: solid;
 	display:inline-block;
 	width: 150px;
-	padding: 20px;
+	padding: 50px;
+	margin-left: 50px;
 }
+
+
+/*-------------------------MAIN----------------------------------*/
+
+
 
 /*------------------------SECTION--------------------------*/
 #section_Quizz {
