@@ -1,183 +1,119 @@
 DROP SCHEMA if exists universquizz;
 CREATE SCHEMA universquizz;
 USE universquizz;
-CREATE TABLE Question(
-   nomQuestion TEXT,
-   reponse TEXT NOT NULL,
-   xp INT NOT NULL,
-   piece INT NOT NULL,
-   PRIMARY KEY(nomQuestion)
+
+CREATE TABLE Utilisateur(
+   idUser SERIAL,
+   pseudo VARCHAR(50)  NOT NULL,
+   mail VARCHAR(50)  NOT NULL,
+   motDePasse VARCHAR(50)  NOT NULL,
+   pointxp INT NOT NULL DEFAULT 0,
+   piece INT NOT NULL DEFAULT 0,
+   indice INT NOT NULL DEFAULT 0,
+   PRIMARY KEY(idUser),
+   UNIQUE(pseudo),
+   UNIQUE(mail)
 );
 
 CREATE TABLE Quizz(
-   nomQuizz VARCHAR(50) ,
-   dateQuizz DATETIME NOT NULL,
+   idQuizz SERIAL,
+   nomQuizz VARCHAR(50)  NOT NULL,
+   dateQuizz DATETIME NOT NULL DEFAULT NOW(),
    niveau INT NOT NULL,
-   PRIMARY KEY(nomQuizz)
+   Temps INT DEFAULT NULL,
+   idUser INT NOT NULL,
+   PRIMARY KEY(idQuizz),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser)
 );
 
 CREATE TABLE Tag(
-   nomTag VARCHAR(50) ,
-   PRIMARY KEY(nomTag)
+   idTag SERIAL,
+   nomTag VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(idTag),
+   UNIQUE(nomTag)
 );
 
 CREATE TABLE QCM(
-   nomQCM TEXT,
+   idQCM SERIAL,
+   Question TEXT NOT NULL,
    reponse1 TEXT,
    reponse2 TEXT,
    reponse3 TEXT,
    reponse4 TEXT,
+   ReponseVrai CHAR(4)  NOT NULL,
    xp INT NOT NULL,
    piece INT NOT NULL,
-   PRIMARY KEY(nomQCM)
+   PRIMARY KEY(idQCM)
 );
-
-CREATE TABLE Utilisateur(
-   idUser SERIAL,
-   pseudo VARCHAR(50) UNIQUE NOT NULL,
-   mail VARCHAR(50) UNIQUE  NOT NULL,
-   motDePasse VARCHAR(50)  NOT NULL,
-   pointxp INT UNSIGNED NOT NULL,
-   piece INT UNSIGNED NOT NULL,
-   indice INT UNSIGNED NOT NULL,
-   nomQuestion TEXT,
-   nomQCM TEXT,
-   PRIMARY KEY(idUser),
-
-   FOREIGN KEY(nomQuestion) REFERENCES Question(nomQuestion),
-   FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM)
-);
-
-CREATE TABLE Classement(
-    nomClassement VARCHAR(50) ,
-    joueur1 VARCHAR(50) UNIQUE NOT NULL,
-    joueur2 VARCHAR(50) UNIQUE NOT NULL,
-    joueur3 VARCHAR(50) UNIQUE NOT NULL,
-    joueur4 VARCHAR(50) UNIQUE NOT NULL,
-    joueur5 VARCHAR(50) UNIQUE NOT NULL,
-    joueur6 VARCHAR(50) UNIQUE NOT NULL,
-    joueur7 VARCHAR(50) UNIQUE NOT NULL,
-    joueur8 VARCHAR(50) UNIQUE NOT NULL,
-    joueur9 VARCHAR(50) UNIQUE NOT NULL,
-    joueur10 VARCHAR(50) UNIQUE NOT NULL,
-    PRIMARY KEY(nomClassement),
-    FOREIGN KEY(joueur1) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur2) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur3) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur4) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur5) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur6) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur7) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur8) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur9) REFERENCES Utilisateur(pseudo),
-    FOREIGN KEY(joueur10) REFERENCES Utilisateur(pseudo)
-
-);
-
-CREATE TABLE Commentaire(
-   idCom SERIAL,
-   nomComentaire TEXT NOT NULL,
-   TitreCom VARCHAR(50)  NOT NULL,
-   DateCom DATETIME NOT NULL,
-   PRIMARY KEY(idCom)
-);
-
-
-CREATE TABLE Defi(
-   nomDefi VARCHAR(50) ,
-   nomQuizz TEXT NOT NULL,
-   PRIMARY KEY(nomDefi)
-);
-
-
 
 CREATE TABLE Theme(
-   nomTheme VARCHAR(50) ,
-   nomClassement VARCHAR(50) ,
-   idUser INT,
-   nomTag VARCHAR(50) ,
-   PRIMARY KEY(nomTheme),
-   UNIQUE(nomClassement),
-   FOREIGN KEY(nomClassement) REFERENCES Classement(nomClassement),
-   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
-   FOREIGN KEY(nomTag) REFERENCES Tag(nomTag)
+   idTheme SERIAL,
+   nomTheme VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(idTheme),
+   UNIQUE(nomTheme)
 );
 
 CREATE TABLE Sauvegarder(
-   nomQuestion TEXT,
-   nomQuizz VARCHAR(50) ,
-   nomQCM TEXT,
-   PRIMARY KEY(nomQuestion, nomQuizz, nomQCM),
-   FOREIGN KEY(nomQuestion) REFERENCES Question(nomQuestion),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM)
+   idUser INT,
+   idQuizz INT,
+   idQCM SERIAL,
+   PRIMARY KEY(idUser, idQuizz, idQCM),
+   FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz),
+   FOREIGN KEY(idQCM) REFERENCES QCM(idQCM)
 );
 
-CREATE TABLE Trier(
-   nomQuizz VARCHAR(50) ,
-   nomTag VARCHAR(50) ,
-   PRIMARY KEY(nomQuizz, nomTag),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(nomTag) REFERENCES Tag(nomTag)
+CREATE TABLE Associer(
+   idTag INT,
+   idTheme INT,
+   PRIMARY KEY(idTag, idTheme),
+   FOREIGN KEY(idTag) REFERENCES Tag(idTag),
+   FOREIGN KEY(idTheme) REFERENCES Theme(idTheme)
 );
 
 CREATE TABLE Jouer(
    idUser INT,
-   nomQuizz VARCHAR(50) ,
-   PRIMARY KEY(idUser, nomQuizz),
+   idQuizz INT,
+   PRIMARY KEY(idUser, idQuizz),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz)
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz)
 );
 
 CREATE TABLE Rechercher(
    idUser INT,
-   nomQuizz VARCHAR(50) ,
-   nomTag VARCHAR(50) ,
-   PRIMARY KEY(idUser, nomQuizz, nomTag),
+   idQuizz INT,
+   idTag INT,
+   PRIMARY KEY(idUser, idQuizz, idTag),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(nomTag) REFERENCES Tag(nomTag)
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz),
+   FOREIGN KEY(idTag) REFERENCES Tag(idTag)
 );
 
 CREATE TABLE Commenter(
    idUser INT,
-   nomQuizz VARCHAR(50) ,
-   idCom INT,
-   PRIMARY KEY(idUser, nomQuizz, idCom),
+   idQuizz INT,
+   TitreCommetaire VARCHAR(50)  NOT NULL,
+   Commentaire TEXT NOT NULL,
+   DateCom DATETIME NOT NULL DEFAULT NOW(),
+   PRIMARY KEY(idUser, idQuizz),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(idCom) REFERENCES Commentaire(idCom)
-);
-
-
-CREATE TABLE Contenir(
-   nomQuizz VARCHAR(50) ,
-   nomDefi VARCHAR(50) ,
-   PRIMARY KEY(nomQuizz, nomDefi),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(nomDefi) REFERENCES Defi(nomDefi)
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz)
 );
 
 CREATE TABLE Defier(
    idUser INT,
-   nomDefi VARCHAR(50) ,
-   PRIMARY KEY(idUser, nomDefi),
+   idUser_1 INT,
+   idQuizz INT,
+   PRIMARY KEY(idUser, idUser_1, idQuizz),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
-   FOREIGN KEY(nomDefi) REFERENCES Defi(nomDefi)
+   FOREIGN KEY(idUser_1) REFERENCES Utilisateur(idUser),
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz)
 );
 
 CREATE TABLE Comprendre(
-   nomQuizz VARCHAR(50) ,
-   nomQCM TEXT,
-   PRIMARY KEY(nomQuizz, nomQCM),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz),
-   FOREIGN KEY(nomQCM) REFERENCES QCM(nomQCM)
-);
-
-CREATE TABLE Inclure(
-   nomQuestion TEXT,
-   nomQuizz VARCHAR(50) ,
-   PRIMARY KEY(nomQuestion, nomQuizz),
-   FOREIGN KEY(nomQuestion) REFERENCES Question(nomQuestion),
-   FOREIGN KEY(nomQuizz) REFERENCES Quizz(nomQuizz)
+   idQuizz INT,
+   idQCM SERIAL,
+   PRIMARY KEY(idQuizz, idQCM),
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz),
+   FOREIGN KEY(idQCM) REFERENCES QCM(idQCM)
 );
