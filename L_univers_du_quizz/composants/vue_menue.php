@@ -8,9 +8,11 @@
 		public function __construct (){
 			$this->contenu = '<a href="index.php?module=accueil" id="lienSite"><img id="img_logoSite" src="img_acc.jpg" alt="Logo Univers de quizz"></a>';
 
-			$this->contenu .=	'<label id="moteurDeRecherche"> Recherche 
-									<input name="saisieDeRecherche" >
-								</label>';
+			$this->contenu .=	'<img id="img_recherche" src="loupe.png" alt="Recherche">
+								<label id="moteurDeRecherche"> 
+								<input name="saisieDeRecherche" >
+								</label>
+								<input type="button" value="Rechercher">';
 				if(!isset($_SESSION['login'])){
 					
 					$this->contenu .= " <a href=index.php?module=connexion&action=connexion>Connexion</a> - <a href=index.php?module=connexion&action=inscription>Inscription</a></nav>";

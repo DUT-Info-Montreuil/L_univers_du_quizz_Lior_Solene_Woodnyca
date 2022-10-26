@@ -27,6 +27,12 @@ header {
 
 }
 
+#img_recherche {
+	margin-left: 200px;
+	width: 15px;
+	height:25px;
+}
+
 .lienConnexion  {
 	margin-left: 540px ;
 	margin-right: 50px;
