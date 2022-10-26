@@ -11,6 +11,7 @@
 
 		public function affiche(){
 			echo $this->controleur_menu->vue->contenu;
+			echo $this->controleur_menu->vue->contenu2;
 		}
 
 	}

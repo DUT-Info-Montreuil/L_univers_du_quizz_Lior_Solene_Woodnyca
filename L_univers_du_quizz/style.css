@@ -10,6 +10,7 @@ a {
 
 }
 
+
 /*--------------------------HEADER-----------------------------*/
 
 header {
@@ -49,14 +50,13 @@ nav a {
 	border: solid;
 	display:inline-block;
 	width: 150px;
-	padding: 50px;
+	padding: 20px;
 }
 
 /*------------------------SECTION--------------------------*/
 #section_Quizz {
 	display: inline-block;
 	margin-left: 150px;
-	
 }
 
 .quizz {
@@ -78,6 +78,23 @@ nav a {
 #Quizz_theme_X a {
 	margin-left: 50px;
 }
+
+#Quizz_film a {
+	margin-left: 50px;
+}
+
+#Quizz_serie a {
+	margin-left: 50px;
+}
+
+#Quizz_culture_g a {
+	margin-left: 50px;
+}
+
+#Quizz_japanimation a {
+	margin-left: 50px;
+}
+
 #Quizz_joueur {
 	margin-top: 20px;
 }
