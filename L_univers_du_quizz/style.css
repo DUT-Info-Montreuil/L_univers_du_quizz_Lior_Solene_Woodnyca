@@ -1,11 +1,14 @@
 /*----------------------------BODY------------------------------*/
+body {
+	margin: auto;
+	width: 1835px;
+}
+
+
 a {
 	text-decoration: none;
 
 }
-
-
-
 
 /*--------------------------HEADER-----------------------------*/
 
@@ -46,20 +49,25 @@ nav a {
 	border: solid;
 	display:inline-block;
 	width: 150px;
-	padding: 20px;
+	padding: 50px;
 }
 
 /*------------------------SECTION--------------------------*/
 #section_Quizz {
 	display: inline-block;
+	margin-left: 150px;
+	
 }
 
 .quizz {
 	border:  solid;
 	margin-left: 50px;
 	margin-top: 10px;
+	margin-bottom: 30px;
 	padding: 20px;
 	padding-bottom: 50px;
+	padding-right: 120px;
+	/*width: 300px;*/
 }
 
 #Quizz_joueur a {
@@ -72,5 +80,4 @@ nav a {
 }
 #Quizz_joueur {
 	margin-top: 20px;
-	padding-bottom: 50px;
 }
