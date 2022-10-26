@@ -18,17 +18,21 @@
                 $this->action = "accueil";
             }
         }
-/*
-        public function affiche_page_culture_g(){
-            echo '<a href"cultureG.php" id="cultureG"> culture g</a>';
-        }
-*/
+
         public function bienvenue(){
             $this->vue->afficher_bienvenue();
         }
 
         public function menu(){
-            $this->vue->afficher_menu();
+            $this->vue->afficher_titre();
+            $this->vue->afficher_classement();
+            //  $this->vue->afficher_quizz_theme_x();
+            $this->vue->afficher_quizz_joueur();
+            $this->vue->afficher_quizz_culture_g();
+            $this->vue->afficher_quizz_serie();
+            $this->vue->afficher_quizz_film();
+            $this->vue->afficher_quizz_japanimation();
+            
         }
     
         public function erreur(){
