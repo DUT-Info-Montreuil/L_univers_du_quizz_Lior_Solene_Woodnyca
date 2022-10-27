@@ -26,6 +26,7 @@
 			<a href="index.php?module=serie">Série</a> 
 			<a href="index.php?module=film">Film</a> 
 			<a href="index.php?module=japanimation">Japanimation</a>
+			<a href="index.php?module=creationQuizz">Création de quizz</a>
 
 		</nav>
 
