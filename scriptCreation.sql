@@ -1,7 +1,3 @@
-DROP SCHEMA if exists universquizz;
-CREATE SCHEMA universquizz;
-USE universquizz;
-
 CREATE TABLE Utilisateur(
    idUser SERIAL,
    pseudo VARCHAR(50)  NOT NULL,
@@ -22,7 +18,7 @@ CREATE TABLE Quizz(
    dateQuizz DATETIME NOT NULL DEFAULT NOW(),
    niveau INT NOT NULL,
    Temps INT DEFAULT NULL,
-   idUser INT NOT NULL,
+   idUser BIGINT(20) UNSIGNED NOT NULL,
    PRIMARY KEY(idQuizz),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser)
 );
@@ -43,8 +39,10 @@ CREATE TABLE QCM(
    reponse4 TEXT,
    ReponseVrai CHAR(4)  NOT NULL,
    xp INT NOT NULL,
-   piece INT NOT NULL DEFAULT 0,
-   PRIMARY KEY(idQCM)
+   piece INT NOT NULL,
+   idQuizz BIGINT(20) UNSIGNED NOT NULL,
+   PRIMARY KEY(idQCM),
+   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz)
 );
 
 CREATE TABLE Theme(
@@ -55,9 +53,10 @@ CREATE TABLE Theme(
 );
 
 CREATE TABLE Sauvegarder(
-   idUser INT,
-   idQuizz INT,
+   idUser BIGINT(20) UNSIGNED,
+   idQuizz BIGINT(20) UNSIGNED,
    idQCM SERIAL,
+   score INT,
    PRIMARY KEY(idUser, idQuizz, idQCM),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz),
@@ -65,25 +64,25 @@ CREATE TABLE Sauvegarder(
 );
 
 CREATE TABLE Associer(
-   idTag INT,
-   idTheme INT,
+   idTag BIGINT(20) UNSIGNED,
+   idTheme BIGINT(20) UNSIGNED,
    PRIMARY KEY(idTag, idTheme),
    FOREIGN KEY(idTag) REFERENCES Tag(idTag),
    FOREIGN KEY(idTheme) REFERENCES Theme(idTheme)
 );
 
 CREATE TABLE Jouer(
-   idUser INT,
-   idQuizz INT,
+   idUser BIGINT(20) UNSIGNED,
+   idQuizz BIGINT(20) UNSIGNED,
    PRIMARY KEY(idUser, idQuizz),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz)
 );
 
 CREATE TABLE Rechercher(
-   idUser INT,
-   idQuizz INT,
-   idTag INT,
+   idUser BIGINT(20) UNSIGNED,
+   idQuizz BIGINT(20) UNSIGNED,
+   idTag BIGINT(20) UNSIGNED,
    PRIMARY KEY(idUser, idQuizz, idTag),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz),
@@ -91,8 +90,8 @@ CREATE TABLE Rechercher(
 );
 
 CREATE TABLE Commenter(
-   idUser INT,
-   idQuizz INT,
+   idUser BIGINT(20) UNSIGNED,
+   idQuizz BIGINT(20) UNSIGNED,
    TitreCommetaire VARCHAR(50)  NOT NULL,
    Commentaire TEXT NOT NULL,
    DateCom DATETIME NOT NULL DEFAULT NOW(),
@@ -102,20 +101,10 @@ CREATE TABLE Commenter(
 );
 
 CREATE TABLE Defier(
-   idUser INT,
-   idUser_1 INT,
-   idQuizz INT,
-   PRIMARY KEY(idUser, idUser_1, idQuizz),
+   idUser BIGINT(20) UNSIGNED,
+   idQuizz BIGINT(20) UNSIGNED,
+   nomDefi VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(idUser, idQuizz),
    FOREIGN KEY(idUser) REFERENCES Utilisateur(idUser),
-   FOREIGN KEY(idUser_1) REFERENCES Utilisateur(idUser),
    FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz)
 );
-
-CREATE TABLE Comprendre(
-   idQuizz INT,
-   idQCM SERIAL,
-   PRIMARY KEY(idQuizz, idQCM),
-   FOREIGN KEY(idQuizz) REFERENCES Quizz(idQuizz),
-   FOREIGN KEY(idQCM) REFERENCES QCM(idQCM)
-);
-
