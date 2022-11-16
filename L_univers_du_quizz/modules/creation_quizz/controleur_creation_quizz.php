@@ -26,16 +26,9 @@
         public function menu(){
             $this->vue->afficher_titre();
             $this->vue->creation_quizz();
-            $this->vue->creation_question_1();
-            $this->vue->creation_question_2();
-            $this->vue->creation_question_3();
-            $this->vue->creation_question_4();
-            $this->vue->creation_question_5();
-            $this->vue->creation_question_6();
-            $this->vue->creation_question_7();
-            $this->vue->creation_question_8();
-            $this->vue->creation_question_9();
-            $this->vue->creation_question_10();
+            for($i = 1 ; $i<=2; $i++) {
+            	$this->vue->creation_question();
+            }
             
         }
     
