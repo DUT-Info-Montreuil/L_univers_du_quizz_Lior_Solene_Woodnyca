@@ -30,7 +30,7 @@
 
         public function inscrire(){
             if($this->modele->verifInscription()){
-                $this->vue->loginDejaPris();
+                $this->vue->pseudoDejaPris();
             }
             else{
                 $this->modele->inscrire();

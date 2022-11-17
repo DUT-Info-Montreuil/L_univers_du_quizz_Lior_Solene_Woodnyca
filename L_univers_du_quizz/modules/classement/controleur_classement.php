@@ -24,8 +24,8 @@
         }
 
         public function menu(){
-            $this->vue->afficher_menu();
             $this->vue->afficher_titre();
+            $this->vue->afficher_classements();
         }
     
         public function erreur(){

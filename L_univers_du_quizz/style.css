@@ -5,80 +5,91 @@ body {
 
 }
 
-
 a {
 	text-decoration: none;
+	color: black;
 
 }
-
 
 /*--------------------------HEADER-----------------------------*/
 
 header {
-	border: solid;
 	padding : 10px;
+	position: fixed;
 }
-
-#lienSite {
-	margin: auto;
-}
-
-#moteurDeRecherche {
-	margin-left: 540px;
-
-}
-
-.lienConnexion  {
-	margin-left: 540px ;
-	margin-right: 50px;
-}
-
 
 /*--------------------------NAV------------------------------*/
 
 nav {
 	padding : 10px;
+	
 }
 
 nav a {
-	padding-left: 120px;
+
+	padding-right: 20px ;
+}
+
+#moteurDeRecherche {
+	margin-left: 440px;
+
+}
+
+#lienSite {
+	padding-left: 50px;
+}
+
+#connexion {
+	padding-left: 15px;
+}
+
+#nav_dropdown {
+	padding-left: 100px;
 }
 
 /*-------------------------CLASSEMENT----------------------------*/
 
-#classement {
+.classement {
+
+	width: 15%;
 	border: solid;
+	border-radius: 30px;
 	display:inline-block;
-	width: 150px;
-	padding: 50px;
 	margin-left: 50px;
+	  /*
+	  position: fixed; /* Fixed Sidebar (stay in place on scroll) 
+	  
+	  left: 0;
+	  overflow-x: hidden;  Disable horizontal scroll */
+	padding-top: 20px;
 }
 
 
 /*-------------------------MAIN----------------------------------*/
 
-
-
-/*------------------------SECTION--------------------------*/
-#section_Quizz {
-	display: inline-block;
-	margin-left: 150px;
+main {
+	padding-top: 100px;
 }
 
+/*------------------------SECTION--------------------------*/
+
+
 .quizz {
-	border:  solid;
+	border: solid;
+	display: inline-block;
+	vertical-align:top;
+	width: 38%;
 	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 30px;
 	padding: 20px;
 	padding-bottom: 50px;
 	padding-right: 120px;
-	/*width: 300px;*/
+	width: 300px;
 }
 
 #Quizz_joueur a {
 	margin-left: 50px;
-
 }
 
 #Quizz_theme_X a {
@@ -104,3 +115,4 @@ nav a {
 #Quizz_joueur {
 	margin-top: 20px;
 }
+
