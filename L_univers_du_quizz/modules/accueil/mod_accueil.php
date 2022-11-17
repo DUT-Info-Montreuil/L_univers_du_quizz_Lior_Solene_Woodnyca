@@ -21,7 +21,7 @@
 					break;
 				case "japanimation":
 					break;
-				default: $controleur->erreur();
+				default: ;
 			}
 
 

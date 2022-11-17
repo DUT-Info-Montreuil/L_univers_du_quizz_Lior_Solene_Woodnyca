@@ -16,23 +16,19 @@
                     <h2>Classement Thème Générale </h2>
                     <ul>
                         <li>
-                            <p> Joueur 1 theme Culture g</p>
-                            <p> score </p>
+                            <a href=# > joueur 1</a>
                         </li>
 
                         <li>
-                            <p> Joueur 1 theme Série</p>
-                            <p> score </p>
+                            <a href=# > joueur 1</a>
                         </li>
 
                         <li>
-                            <p> Joueur 1 theme Film</p>
-                            <p> score </p>
+                            <a href=# > joueur 1</a>
                         </li>
 
                         <li>
-                            <p> Joueur 1 theme Japanimation</p>
-                            <p> score </p>
+                            <a href=# > joueur 1</a>
                         </li>
 
                     </ul>

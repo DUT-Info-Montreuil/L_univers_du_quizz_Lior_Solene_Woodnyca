@@ -33,7 +33,7 @@
 
             
             if(!isset($_POST["pseudo"]) || strlen($_POST['pseudo']) == 0) {
-                trow new Exeption("Login non valide");
+                throw new Exception("Login non valide");
             } 
 
             $t = array($_POST["pseudo"]);
