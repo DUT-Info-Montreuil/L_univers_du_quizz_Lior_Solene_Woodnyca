@@ -29,13 +29,20 @@
         }
 
         public function inscrire(){
-            if($this->modele->verifInscription()){
-                $this->vue->loginDejaPris();
+            try{
+                if($this->modele->verifInscription()){
+                $this->vue->pseudoDejaPris();
+                }
+                else{
+                    $this->modele->inscrire();
+                    $this->vue->resultat_inscription();
+                }
+            }catch(Exception $e){
+                echo $e->getMessage(), "\n";
+                $this->form_inscription();
             }
-            else{
-                $this->modele->inscrire();
-                $this->vue->resultat_inscription();
-            }
+
+            
         }
 
         public function deconnexion(){
