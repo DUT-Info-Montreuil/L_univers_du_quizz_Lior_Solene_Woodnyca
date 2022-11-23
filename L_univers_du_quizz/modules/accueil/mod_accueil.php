@@ -9,7 +9,7 @@
 			$controleur = new controleurAccueil();
 
 			$controleur->menu();
-
+			
 			switch($controleur->get_action()){
 				case "classement":
 					break;
@@ -21,9 +21,8 @@
 					break;
 				case "japanimation":
 					break;
-				default: $controleur->erreur();
+				default: ;
 			}
-
 
 			$this->affichage = $controleur->vue->getAffichage();
 		}

@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8"/>
         <title>Univers de Quizz</title>
-		<!--<LINK href="style.css" rel="stylesheet" type="text/css">-->
     </head>
 
 
@@ -44,6 +43,9 @@
                     break;
                 case "creationQuizz": require_once "modules/creation_quizz/mod_creation_quizz.php";
                     $module = new ModCreationQuizz();
+                    break;
+                case "creationQuestion": require_once "modules/creation_question/mod_creation_question.php";
+                    $module = new ModCreationQuestion();
                     break;
             }
         }

@@ -7,25 +7,18 @@ body {
 
 a {
 	text-decoration: none;
-
+	color: black;
 }
 
 
 /*--------------------------HEADER-----------------------------*/
 
 header {
-	border: solid;
 	padding : 10px;
+	position: fixed;
 }
 
-#lienSite {
-	margin: auto;
-}
 
-#moteurDeRecherche {
-	margin-left: 540px;
-
-}
 
 #img_recherche {
 	margin-left: 200px;
@@ -50,13 +43,44 @@ nav a {
 	padding-left: 120px;
 }
 
+#moteurDeRecherche {
+	margin-left: 10px;
+	margin-bottom: 20px;
+
+}
+
+#lienSite {
+	margin: auto;
+}
+
+#connexion {
+	padding-left: 15px;
+}
+
+#nav_dropdown {
+	padding-left: 100px;
+}
+
 /*-------------------------CLASSEMENT----------------------------*/
 
 #classement {
+	width: 15%;
 	border: solid;
+	border-radius: 30px;
 	display:inline-block;
-	width: 150px;
-	padding: 20px;
+	margin-left: 50px;
+	  /*
+	  position: fixed; /* Fixed Sidebar (stay in place on scroll) 
+	  
+	  left: 0;
+	  overflow-x: hidden;  Disable horizontal scroll */
+	padding-top: 20px;
+}
+
+/*-------------------------MAIN----------------------------------*/
+
+main {
+	padding-top: 100px;
 }
 
 /*------------------------SECTION--------------------------*/
@@ -65,15 +89,18 @@ nav a {
 	margin-left: 150px;
 }
 
-.quizz {
-	border:  solid;
+quizz {
+	border: solid;
+	display: inline-block;
+	vertical-align:top;
+	width: 38%;
 	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 30px;
 	padding: 20px;
 	padding-bottom: 50px;
 	padding-right: 120px;
-	/*width: 300px;*/
+	width: 300px;
 }
 
 #Quizz_joueur a {
