@@ -16,7 +16,8 @@
 						<a href="index.php?module=cultureG">Culture Générele</a>  
 						<a href="index.php?module=serie">Série</a> 
 						<a href="index.php?module=film">Film</a> 
-						<a href="index.php?module=japanimation">Japanimation</a>';
+						<a href="index.php?module=japanimation">Japanimation</a>
+						<a href="index.php?module=creationQuizz">Creation de quizz';
 
 			$this->contenu .=	'<form class="d-flex">
 							<img id="img_recherche" src="loupe.png" alt="Recherche">
