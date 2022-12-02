@@ -25,13 +25,11 @@
             unset($_POST["pseudo"]);
             unset($_POST["password"]);
 
-
         }
 
 
         public function verifInscription(){
 
-            
             if(!isset($_POST["pseudo"]) || strlen($_POST['pseudo']) == 0) {
                 throw new Exception("Login non valide");
             } 
@@ -49,6 +47,7 @@
         }
 
         public function inscrire(){
+
             $tailleMDP = 4;
 
             if(!isset($_POST["password"])) {
@@ -69,6 +68,7 @@
                 $_SESSION['pseudo'] = $_POST['pseudo'];
             }
 
+        
 
         }
 

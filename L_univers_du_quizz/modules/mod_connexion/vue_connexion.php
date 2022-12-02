@@ -11,12 +11,20 @@
 
 		public function form_connexion(){
 			?>
-			<h1>Connexion:</h1>
-			<form action="index.php?module=connexion&action=connecter" method="post">
-				<p>Pseudo: <input type="text" name="pseudo" /></p>
-				<p>Mot de passe: <input type="password" name="password" /></p>
-				<p><input type="submit" value="Se connecter"></p>
-			</form>
+				<h1>Connexion:</h1>
+				
+				<form action="index.php?module=connexion&action=connecter" method="post">
+					<div class="mb-3">
+						<label for="login" class="form-label">Pseudo</label>
+						<input type="login" class="form-control" id="login" aria-describedby="emailHelp" name="pseudo">
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" name="password">
+					</div>
+					
+					<button type="submit" class="btn btn-secondary">Se connecter</button>
+				</form>
 			<?php	
 		}
 
@@ -24,15 +32,24 @@
 			?>
 			<h1>Inscription:</h1>
 			<form action="index.php?module=connexion&action=inscrire" method="post">
-				<p>Pseudo: <input type="text" name="pseudo" /></p>
-				<p>Mot de passe: <input type="password" name="password" /></p>
-				<p>Confirmer mot de passe: <input type="password" name="passwordConfirm" /></p>
-				<p><input type="submit" value="S'inscrire"></p>
+				<div class="mb-3">
+						<label for="login" class="form-label">Pseudo</label>
+						<input type="login" class="form-control" id="login" aria-describedby="emailHelp" name="pseudo">
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" name="password">
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">Confirmer mot de passe</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" name="passwordConfirm">
+					</div>
+					<button type="submit" class="btn btn-secondary">S'inscrire</button>
 			</form>
 			<?php	
 		}
 
-		public function pseudoDejaPris(){
+		public function loginDejaPris(){
 			echo "<p>Ce pseudo est déjà utilisé par un autre utilisateur.</p>";
 		}
 

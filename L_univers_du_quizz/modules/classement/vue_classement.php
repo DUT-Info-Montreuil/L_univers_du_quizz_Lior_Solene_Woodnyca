@@ -10,6 +10,14 @@
             echo '<h1>Classement :</h1>';
         }
 
+        public function afficher_menu(){
+           // echo '<nav> <a href="modules/classement/classement.php">Classement</a> <a href="modules/culture_g/culture_g.php">Culture Générale</a> <a href="modules/serie/serie.php">Série</a> <a href="modules/film/film.php">Film</a> <a href="modules/japanimation/japanimation.php">Japanimation</a> </nav>';
+        }
+
+        public function afficher_bienvenue(){
+            echo '<p>Bienvenue sur mon site !</p>';
+        }
+    
         public function afficher_classements() {
             echo '
             <section id="section_Quizz">
@@ -162,7 +170,7 @@
             </section>';
 
         }
-    
+        
         public function afficher_erreur(){
             echo '<p>Erreur !</p>';
         }

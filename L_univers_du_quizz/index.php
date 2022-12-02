@@ -41,6 +41,21 @@
                 case "japanimation": require_once "modules/japanimation/mod_japanimation.php";
                     $module = new ModJapanimation();
                     break;
+                case "creationQuizz": require_once "modules/creation_quizz/mod_creation_quizz.php";
+                    $module = new ModCreationQuizz();
+                    break;
+                case "creationQuestion": require_once "modules/creation_question/mod_creation_question.php";
+                    $module = new ModCreationQuestion();
+                    break;
+                case "quizz": require_once "modules/quizz/mod_quizz.php";
+                    $module = new ModQuizz();
+                    break;
+                case "autres": require_once "modules/autres/mod_autres.php";
+                    $module = new ModAutres();
+                    break;
+                case "profil": require_once "modules/profil/mod_profil.php";
+                    $module = new ModProfil();
+                    break;
             }
         }
 

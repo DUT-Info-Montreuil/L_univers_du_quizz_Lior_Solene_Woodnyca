@@ -31,7 +31,7 @@
         public function inscrire(){
             try{
                 if($this->modele->verifInscription()){
-                $this->vue->pseudoDejaPris();
+                    $this->vue->loginDejaPris();
                 }
                 else{
                     $this->modele->inscrire();
@@ -41,12 +41,10 @@
                 echo $e->getMessage(), "\n";
                 $this->form_inscription();
             }
-
-            
         }
 
         public function deconnexion(){
-            unset($_SESSION['login']);
+            unset($_SESSION['pseudo']);
             $this->vue->deconnexion();
         }
 

@@ -9,7 +9,7 @@
 			$controleur = new controleurAccueil();
 
 			$controleur->menu();
-
+			
 			switch($controleur->get_action()){
 				case "classement":
 					break;
@@ -23,7 +23,6 @@
 					break;
 				default: ;
 			}
-
 
 			$this->affichage = $controleur->vue->getAffichage();
 		}

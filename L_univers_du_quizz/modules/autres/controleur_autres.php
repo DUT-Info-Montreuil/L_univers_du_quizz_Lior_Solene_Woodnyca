@@ -1,15 +1,15 @@
 <?php
 
-    class ControleurClassement{
+    class ControleurAutres{
         public $vue;
         private $modele;
         private $action;
 
         public function __construct(){
-            require_once "vue_classement.php";
-            $this->vue = new VueClassement();
-            require_once "model_classement.php";
-            $this->modele = new ModelClassement();
+            require_once "vue_autres.php";
+            $this->vue = new VueAutres();
+            require_once "model_autres.php";
+            $this->modele = new ModelAutres();
     
             if(isset($_GET['action'])){
                 $this->action = $_GET['action'];
@@ -24,9 +24,9 @@
         }
 
         public function menu(){
-            //$this->vue->afficher_menu();
             $this->vue->afficher_titre();
-            $this->vue->afficher_classements();
+            $this->vue->afficher_quizz();
+            
         }
     
         public function erreur(){

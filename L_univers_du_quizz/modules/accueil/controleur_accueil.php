@@ -24,15 +24,14 @@
         }
 
         public function menu(){
-          //  $this->vue->afficher_titre();
+            $this->vue->afficher_titre();
             $this->vue->afficher_classement();
             //  $this->vue->afficher_quizz_theme_x();
             $this->vue->afficher_quizz_joueur();
             $this->vue->afficher_quizz_culture_g();
+            $this->vue->afficher_quizz_serie();
             $this->vue->afficher_quizz_film();
             $this->vue->afficher_quizz_japanimation();
-            $this->vue->afficher_quizz_serie();
-
             
         }
     

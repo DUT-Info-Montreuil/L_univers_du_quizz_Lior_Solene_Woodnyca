@@ -1,16 +1,18 @@
 <?php
+    require_once "vue_profil.php";
+    
+    require_once "model_profil.php";
+    
 
-    class ControleurClassement{
+    class ControleurProfil{
         public $vue;
         private $modele;
         private $action;
 
         public function __construct(){
-            require_once "vue_classement.php";
-            $this->vue = new VueClassement();
-            require_once "model_classement.php";
-            $this->modele = new ModelClassement();
-    
+            $this->vue = new VueProfil();
+            $this->modele = new ModelProfil();
+
             if(isset($_GET['action'])){
                 $this->action = $_GET['action'];
             }
@@ -19,14 +21,11 @@
             }
         }
 
-        public function bienvenue(){
-            $this->vue->afficher_bienvenue();
-        }
-
         public function menu(){
-            //$this->vue->afficher_menu();
-            $this->vue->afficher_titre();
-            $this->vue->afficher_classements();
+            $this->vue->afficher_titre(); 
+            
+            $xp = $this->modele->getXp();
+            //echo "j'ai" . $xp;
         }
     
         public function erreur(){

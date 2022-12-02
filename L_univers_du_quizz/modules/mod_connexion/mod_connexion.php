@@ -25,7 +25,6 @@
                         case "inscription": $cont->form_inscription();
                             break;
                         case "inscrire": $cont->inscrire();
-
                             break;
                         default: $cont->erreur();
                     }
