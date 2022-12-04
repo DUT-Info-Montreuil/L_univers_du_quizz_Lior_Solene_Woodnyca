@@ -2,7 +2,7 @@ CREATE TABLE Utilisateur(
 	idUser SERIAL,
 	pseudo VARCHAR(50)  NOT NULL,
 	mail VARCHAR(50)  NOT NULL,
-	motDePasse VARCHAR(50)  NOT NULL,
+	motDePasse VARCHAR(255)  NOT NULL,
 	pointxp INT NOT NULL DEFAULT 0,
 	piece INT NOT NULL DEFAULT 0,
 	indice INT NOT NULL DEFAULT 0,
