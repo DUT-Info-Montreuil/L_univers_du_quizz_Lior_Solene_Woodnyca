@@ -13,8 +13,12 @@
         public function afficher_classement(){
             echo '
                 <div class="classement" id="Classement_g" >
-                    <h2>Classement Thème Générale </h2>
+                   <a href="index.php?module=classement"> <h2>Classement Thème Générale </h2> </a>
                     <ul>
+                        <li>
+                            <a href=# > joueur 1</a>
+                        </li>
+
                         <li>
                             <a href=# > joueur 1</a>
                         </li>
@@ -39,7 +43,7 @@
             echo '
             
                 <div id="Quizz_theme_X" class="quizz">
-                    <h2>Quizz Theme x</h2>
+                    <a href=# > <h2>Quizz Theme x</h2> </a>
                     <a href="php_QuizzTheme_x">Quizz 5</a>
                     <a href="php_QuizzTheme_x">Quizz 2</a>
                     <a href="php_QuizzTheme_x">Quizz 4</a>
@@ -47,16 +51,16 @@
                 </div>';
         }
 
-        public function afficher_quizz_joueur(){
+        public function afficher_quizz_autres(){
             echo '
            
-                <div id="Quizz_joueur" class="quizz">
-                    <h2>Quizz joueur</h2>
-                    <a href="php_QuizzJoueur1">Quizz 1</a>
-                    <a href="php_QuizzJoueur2">Quizz 2</a>
-                    <a href="php_QuizzJoueur3">Quizz 3</a>
-                    <a href="php_QuizzJoueur4">Quizz 4</a>
-                    <a href="php_QuizzJoueur5">Quizz 5</a>
+                <div id="Quizz_autres" class="quizz">
+                    <a href="index.php?module=autres"> <h2>Quizz Autres</h2> </a>
+                    <a href="php_QuizzAutres1">Quizz 1</a>
+                    <a href="php_QuizzAutres2">Quizz 2</a>
+                    <a href="php_QuizzAutres3">Quizz 3</a>
+                    <a href="php_QuizzAutres4">Quizz 4</a>
+                    <a href="php_QuizzAutres5">Quizz 5</a>
                 </div>
             ';
         }
@@ -65,22 +69,18 @@
             echo '
             
                 <div id="Quizz_culture_g" class="quizz">
-                    <h2>Quizz Culture Générale </h2>
-                    <a href="php_QuizzTheme_x">Quizz 5</a>
-                    <a href="php_QuizzTheme_x">Quizz 2</a>
-                    <a href="php_QuizzTheme_x">Quizz 4</a>
-                    <a href="php_QuizzTheme_x">Quizz 1</a>
+                     <a href="index.php?module=cultureG"> <h2>Quizz Culture Générale </h2> </a>
+                    
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Ubuntu&idQuizz=2">Quizz Ubuntu</a>
                 </div>';
         }
 
         public function afficher_quizz_film(){
             echo '
                 <div id="Quizz_film" class="quizz">
-                    <h2>Quizz Film </h2>
-                    <a href="php_Quizz_film">Quizz 5</a>
-                    <a href="php_Quizz_film">Quizz 2</a>
-                    <a href="php_Quizz_film">Quizz 4</a>
-                    <a href="php_Quizz_film">Quizz 1</a>
+                    <a href="index.php?module=film"> <h2>Quizz Film </h2> </a>
+                    
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Marvel&idQuizz=1">Quizz Marvel</a>
                 </div>
            ';
         }
@@ -89,22 +89,27 @@
             echo '
            
                 <div id="Quizz_japanimation" class="quizz">
-                    <h2>Quizz Japanimation </h2>
-                    <a href="php_Quizz_japanimation">Quizz 5</a>
-                    <a href="php_Quizz_japanimation">Quizz 2</a>
-                    <a href="php_Quizz_japanimation">Quizz 4</a>
-                    <a href="php_Quizz_japanimation">Quizz 1</a>
+                    <a href="index.php?module=japanimation"> <h2>Quizz Japanimation </h2> </a>
+                    
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+One+Piece&idQuizz=3">Quizz One Piece</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Personnages+One+Piece&idQuizz=4">Quizz Personnages One Piece</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Fruit+du+Demon&idQuizz=5">Quizz Fruit du Démon</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+One+Piece+2&idQuizz=6">Quizz One Piece 2</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Dragon+Ball&idQuizz=14">Quizz Dragon Ball</a> </br>
                 </div>';
         }
 
         public function afficher_quizz_serie(){
             echo '
                 <div id="Quizz_serie" class="quizz">
-                    <h2>Quizz Série </h2>
-                    <a href="php_Quizz_serie">Quizz 5</a>
-                    <a href="php_Quizz_serie">Quizz 2</a>
-                    <a href="php_Quizz_serie">Quizz 4</a>
-                    <a href="php_Quizz_serie">Quizz 1</a>
+                    <a href="index.php?module=serie"> <h2>Quizz Série </h2> </a>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Friends&idQuizz=7">Quizz Friends</a>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Friends+2&idQuizz=8">Quizz Friends 2</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+1&idQuizz=9">Quizz vampire diaries 1</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+2&idQuizz=10">Quizz vampire diaries 2</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+3&idQuizz=11">Quizz vampire diaries 3</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+4&idQuizz=12">Quizz vampire diaries 4</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+5&idQuizz=13">Quizz vampire diaries 5</a>
                 </div>
            ';
         }

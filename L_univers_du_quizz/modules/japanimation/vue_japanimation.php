@@ -15,16 +15,13 @@
             <section id="section_Quizz">
                 <div id="Quizz_japanimation" class="quizz">
                     <h2>Quizz Japanimation </h2>
-                    <a href="php_Quizz_japanimation">Quizz 5</a>
-                    <a href="php_Quizz_japanimation">Quizz 2</a>
-                    <a href="php_Quizz_japanimation">Quizz 4</a>
-                    <a href="php_Quizz_japanimation">Quizz 1</a>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+One+Piece&idQuizz=3">Quizz One Piece</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Personnages+One+Piece&idQuizz=4">Quizz Personnages One Piece</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Fruit+du+Demon&idQuizz=5">Quizz Fruit du Démon</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+One+Piece+2&idQuizz=6">Quizz One Piece 2</a> </br>
+                    <a href="index.php?module=quizz&nomQuizz=Quizz+Dragon+Ball&idQuizz=14">Quizz Dragon Ball</a> </br>
                 </div>
             </section>';
-        }
-
-        public function afficher_bienvenue(){
-            echo '<p>Bienvenue sur mon site !</p>';
         }
     
         public function afficher_erreur(){

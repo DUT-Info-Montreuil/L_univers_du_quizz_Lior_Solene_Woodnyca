@@ -78,14 +78,14 @@ main {
 	border: solid;
 	display: inline-block;
 	vertical-align:top;
-	width: 38%;
+	width: 45%;
 	margin-left: 50px;
 	margin-top: 10px;
 	margin-bottom: 30px;
 	padding: 20px;
 	padding-bottom: 50px;
 	padding-right: 120px;
-	width: 300px;
+	width: 365px;
 }
 
 #Quizz_joueur a {
@@ -109,7 +109,8 @@ main {
 }
 
 #Quizz_japanimation a {
-	margin-left: 50px;
+	/*margin-left: 50px;
+	margin-right: 50px;*/
 }
 
 #Quizz_joueur {
