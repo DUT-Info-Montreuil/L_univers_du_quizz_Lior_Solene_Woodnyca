@@ -10,17 +10,32 @@
 
 
         public function connecter(){
-                
-            $t = array($_POST["pseudo"]);
-            $selecPrepare = self::$bdd->prepare('SELECT pseudo,motDePasse FROM Utilisateur WHERE pseudo=?');
-            $selecPrepare->execute($t);
-            $tab = $selecPrepare->fetchall();
 
-            if(isset($tab[0]) && password_verify($_POST["password"], $tab[0]['password'])){
-                $_SESSION['pseudo'] = $tab[0]['pseudo'];
+
+            if(!isset($_POST["pseudo"]) || strlen($_POST['pseudo']) == 0) {
+                throw new Exception("Login non valide");
+            } 
+
+            else if (!isset($_POST["password"]) || strlen($_POST['password']) == 0) {
+                throw new Exception("Mot de passe non valide");
             }
 
+            else{
 
+                $t = array($_POST["pseudo"]);
+                $selecPrepare = self::$bdd->prepare('SELECT pseudo,motDePasse FROM Utilisateur WHERE pseudo=?');
+                $selecPrepare->execute($t);
+                $tab = $selecPrepare->fetch();
+                
+                if(isset($tab) && password_verify($_POST["password"], $tab["motDePasse"])){
+                    $_SESSION['pseudo'] = $tab["pseudo"];
+                }
+                else {
+                    throw new Exception("Le pseudo ou le mot de passe est incorrect");
+                    
+                }
+
+             }
             unset($tab);
             unset($_POST["pseudo"]);
             unset($_POST["password"]);
@@ -49,9 +64,13 @@
         }
 
         public function inscrire(){
-            $tailleMDP = 4;
+            $tailleMDP = 7;
 
-            if(!isset($_POST["password"])) {
+            if(!isset($_POST['mail']) || strlen($_POST['mail']) < 8) {
+                throw new Exception("Email obligatoire et doit etre valide");                
+            }
+
+            else if(!isset($_POST["password"])) {
                 throw new Exception("Mot de passe null");
             } 
             elseif ($_POST["password"] != $_POST["passwordConfirm"]) {
@@ -62,8 +81,8 @@
             }
 
             else {
-                $t = array($_POST["pseudo"], password_hash($_POST["password"], PASSWORD_DEFAULT));
-                $selecPrepare = self::$bdd->prepare('INSERT INTO Utilisateur(pseudo, motDePasse) VALUES (?,?)');
+                $t = array($_POST["pseudo"], $_POST['mail'], password_hash($_POST["password"], PASSWORD_DEFAULT));
+                $selecPrepare = self::$bdd->prepare('INSERT INTO Utilisateur(pseudo, mail, motDePasse) VALUES (?,?,?)');
                 $selecPrepare->execute($t);
 
                 $_SESSION['pseudo'] = $_POST['pseudo'];

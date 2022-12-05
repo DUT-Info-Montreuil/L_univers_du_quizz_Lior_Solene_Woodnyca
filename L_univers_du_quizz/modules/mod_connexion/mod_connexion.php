@@ -1,18 +1,18 @@
 <?php
 
 
+    require_once "cont_connexion.php";
     class ModConnexion{
         
 
         public $affichage;
 
         public function __construct(){
-            require_once "cont_connexion.php";
             $cont = new ControleurConnexion();
 
             if(isset($_GET['action'])){
 
-                if(isset($_SESSION['login'])){
+                if(isset($_SESSION['pseudo'])){
                     if($_GET['action'] == "deconnexion"){$cont->deconnexion();}
                     else{$cont->dejaConnecte();}
                 }
@@ -25,9 +25,8 @@
                         case "inscription": $cont->form_inscription();
                             break;
                         case "inscrire": $cont->inscrire();
-
                             break;
-                        default: $cont->erreur();
+                        default:
                     }
                 }
             }
