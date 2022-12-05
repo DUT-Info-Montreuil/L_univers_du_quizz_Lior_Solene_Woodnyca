@@ -20,7 +20,12 @@
                     <h2>Quizz Série </h2>
                     <a href="index.php?module=quizz&nomQuizz=Quizz+Friends&idQuizz=7">Quizz Friends</a>
                     <a href="index.php?module=quizz&nomQuizz=Quizz+Friends+2&idQuizz=8">Quizz Friends 2</a>
-                    <a href="php_Quizz_serie">Quizz 5</a><a href="php_Quizz_serie">Quizz 2</a><a href="php_Quizz_serie">Quizz 4</a><a href="php_Quizz_serie">Quizz 1</a></div></section>';
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+1&idQuizz=9">quizz vampire diaries 1</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+2&idQuizz=10">quizz vampire diaries 2</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+3&idQuizz=11">quizz vampire diaries 3</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+4&idQuizz=12">quizz vampire diaries 4</a>
+                    <a href="index.php?module=quizz&nomQuizz=quizz+vampire+diaries+5&idQuizz=13">quizz vampire diaries 5</a>
+                    </div></section>';
         }
 
         public function afficher_bienvenue(){

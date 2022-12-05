@@ -19,11 +19,6 @@
                 <div id="Quizz_film" class="quizz">
                     <h2>Quizz Film </h2>
                     <a href="index.php?module=quizz&nomQuizz=Quizz+Marvel&idQuizz=1">Quizz Marvel</a>
-                    <a href="index.php?module=quizz&nomQuizz=quizz&idQuizz=1">Quizz</a>
-                    <a href="php_Quizz_film">Quizz 5</a>
-                    <a href="php_Quizz_film">Quizz 2</a>
-                    <a href="php_Quizz_film">Quizz 4</a>
-                    <a href="php_Quizz_film">Quizz 1</a>
                 </div>
             </section>';
         }
