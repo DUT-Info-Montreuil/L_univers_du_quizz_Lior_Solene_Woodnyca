@@ -4,9 +4,6 @@
 		
 	protected static $bdd;
         
-        public function __construct(){
-        }
-
         public static function initConnexion(){
             $user = 'dutinfopw201634';
             $password = 'sahedyja';

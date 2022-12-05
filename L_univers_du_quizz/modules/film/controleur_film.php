@@ -1,14 +1,14 @@
 <?php
 
+    require_once "vue_film.php";
+    require_once "model_film.php";
     class ControleurFilm{
         public $vue;
         private $modele;
         private $action;
 
         public function __construct(){
-            require_once "vue_film.php";
             $this->vue = new VueFilm();
-            require_once "model_film.php";
             $this->modele = new ModelFilm();
     
             if(isset($_GET['action'])){

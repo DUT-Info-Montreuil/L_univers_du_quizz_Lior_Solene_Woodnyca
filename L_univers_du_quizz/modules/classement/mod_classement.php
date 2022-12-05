@@ -1,11 +1,11 @@
 <?php
 
+	require_once "controleur_classement.php";
 	class ModClassement{
 		
 		public $affichage;
 
 		public function __construct(){
-			require_once "controleur_classement.php";
 			$controleur = new controleurClassement();
 
 			$controleur->menu();

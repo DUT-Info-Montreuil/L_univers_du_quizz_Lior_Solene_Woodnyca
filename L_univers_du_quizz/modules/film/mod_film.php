@@ -1,11 +1,11 @@
 <?php
 
+	require_once "controleur_film.php";
 	class ModFilm{
 		
 		public $affichage;
 
 		public function __construct(){
-			require_once "controleur_film.php";
 			$controleur = new controleurFilm();
 
 			$controleur->menu();

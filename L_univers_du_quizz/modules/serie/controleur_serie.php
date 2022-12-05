@@ -1,14 +1,14 @@
 <?php
 
+    require_once "vue_serie.php";
+    require_once "model_serie.php";
     class ControleurSerie{
         public $vue;
         private $modele;
         private $action;
 
         public function __construct(){
-            require_once "vue_serie.php";
             $this->vue = new VueSerie();
-            require_once "model_serie.php";
             $this->modele = new ModelSerie();
     
             if(isset($_GET['action'])){

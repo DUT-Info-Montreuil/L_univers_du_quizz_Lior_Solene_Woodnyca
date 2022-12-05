@@ -1,11 +1,11 @@
 <?php
 
+	include_once 'cont_menu.php';
 	class CompMenu{
 
 		public $controleur_menu;
 
 		public function __construct () {
-			include_once 'cont_menu.php';
 			$this->controleur_menu = new ContMenu();
 		}
 

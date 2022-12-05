@@ -1,14 +1,14 @@
 <?php
 
+    require_once "vue_connexion.php";
+    require_once "modele_connexion.php";
     class ControleurConnexion{
 
         public $vue;
         private $modele;
 
         public function __construct(){
-            require_once "vue_connexion.php";
             $this->vue = new VueConnexion();
-            require_once "modele_connexion.php";
             $this->modele = new ModeleConnexion();
 
         }
@@ -24,8 +24,15 @@
 
 
         public function connecter(){
-            $this->modele->connecter();
-            $this->vue->resultat_connexion();
+            try{
+
+                $this->modele->connecter();
+                $this->vue->resultat_connexion();
+            } catch(Exception $e) {
+                echo $e->getMessage();
+                $this->form_connexion();
+            }
+
         }
 
         public function inscrire(){
@@ -46,7 +53,7 @@
         }
 
         public function deconnexion(){
-            unset($_SESSION['login']);
+            unset($_SESSION['pseudo']);
             $this->vue->deconnexion();
         }
 
