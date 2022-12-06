@@ -42,7 +42,7 @@
 
 				<div class="mb-3">
 						<label for="exampleInputPassword1" class="form-label">Mail</label>
-						<input type="email" class="form-control" id="exampleInputPassword1" name="email" value=<?php if(isset($_POST["mail"])) { echo $_POST['mail'];}?>>
+						<input type="email" class="form-control" id="exampleInputPassword1" name="mail" value=<?php if(isset($_POST["mail"])) { echo $_POST['mail'];}?>>
 				</div>
 
 				<div class="mb-3">
