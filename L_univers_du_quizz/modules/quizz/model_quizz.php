@@ -58,9 +58,10 @@
         public function verif_reponse($nbQuestion,$quizz, $idQuizz){
             $resultat = 0;
             $total = 0;
+            $reponse = Null;
 
             $rechercheidUser = self::$bdd->prepare('SELECT idUser from Utilisateur where pseudo=?');
-            $rechercheidUser->execute(array($pseudo));
+            $rechercheidUser->execute(array($_SESSION['pseudo']));
             $result = $rechercheidUser->fetch();
 
             $verifSauvegarde = self::$bdd->prepare('SELECT estTerminer from Sauvegarder where idUser = ? and idQuizz = ?');  
@@ -81,7 +82,7 @@
                 $total= $total + $quizz[$i]["xp"];
 
                 foreach ($_POST['reponse'. $i] as $rep) {
-                    $reponse .= $rep;
+                    $reponse = $reponse + $rep;
                 }
 
                 if($reponse == $quizz[$i]["ReponseVrai"]) {
